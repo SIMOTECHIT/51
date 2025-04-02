@@ -5,18 +5,20 @@ function addProduct() {
     const productName = document.getElementById('productName').value;
     const productQuantity = document.getElementById('productQuantity').value;
 
-    if (!productName || !productQuantity) {
-        alert('Per favore, inserisci un nome prodotto e una quantità.');
+    if (!productName || !productQuantity || productQuantity <= 0) {
+        alert('Per favore, inserisci un nome prodotto e una quantità valida.');
         return;
     }
 
-    // Aggiungi il prodotto alla lista
-    const product = {
-        name: productName,
-        quantity: parseInt(productQuantity)
-    };
+    // Aggiungi tante voci quanti sono la quantità
+    for (let i = 0; i < productQuantity; i++) {
+        const product = {
+            name: productName,
+            quantity: 1  // Ogni voce rappresenta una singola unità
+        };
+        productList.push(product);
+    }
 
-    productList.push(product);
     renderProductList();
     clearInputs();
 }
@@ -50,7 +52,7 @@ function renderProductList() {
 
 function modifyProduct(index) {
     const newQuantity = prompt("Inserisci la nuova quantità:", productList[index].quantity);
-    if (newQuantity !== null && !isNaN(newQuantity) && newQuantity >= 0) {
+    if (newQuantity !== null && !isNaN(newQuantity) && newQuantity > 0) {
         productList[index].quantity = parseInt(newQuantity);
         renderProductList();
     } else {
