@@ -28,8 +28,39 @@ function renderProductList() {
     productList.forEach((product, index) => {
         const li = document.createElement('li');
         li.textContent = `${product.name} - Quantità: ${product.quantity}`;
+
+        // Pulsante per Modificare
+        const modifyButton = document.createElement('button');
+        modifyButton.textContent = 'Modifica';
+        modifyButton.classList.add('modify');
+        modifyButton.onclick = () => modifyProduct(index);
+
+        // Pulsante per Rimuovere
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Rimuovi';
+        removeButton.classList.add('remove');
+        removeButton.onclick = () => removeProduct(index);
+
+        // Aggiungi i pulsanti alla lista
+        li.appendChild(modifyButton);
+        li.appendChild(removeButton);
         productListElement.appendChild(li);
     });
+}
+
+function modifyProduct(index) {
+    const newQuantity = prompt("Inserisci la nuova quantità:", productList[index].quantity);
+    if (newQuantity !== null && !isNaN(newQuantity) && newQuantity >= 0) {
+        productList[index].quantity = parseInt(newQuantity);
+        renderProductList();
+    } else {
+        alert('Quantità non valida!');
+    }
+}
+
+function removeProduct(index) {
+    productList.splice(index, 1);  // Rimuove il prodotto dalla lista
+    renderProductList();
 }
 
 function clearInputs() {
