@@ -57,3 +57,19 @@ li {
     margin-bottom: 5px;
     border-radius: 5px;
 }
+
+button.modify {
+    background-color: #ff9800;
+}
+
+button.modify:hover {
+    background-color: #fb8c00;
+}
+
+button.remove {
+    background-color: #f44336;
+}
+
+button.remove:hover {
+    background-color: #d32f2f;
+}
