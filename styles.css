@@ -1,9 +1,12 @@
 /* styles.css */
+
+/* Tema scuro */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #121212;  /* Colore di sfondo scuro */
+    color: #ffffff;  /* Testo bianco per contrasto */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,16 +14,17 @@ body {
 }
 
 .container {
-    background-color: #fff;
+    background-color: #1f1f1f;  /* Contenitore con sfondo scuro */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 100%;
     max-width: 400px;
 }
 
-h1 {
+h1, h2 {
     text-align: center;
+    color: #e0e0e0;  /* Colore testo grigio chiaro */
 }
 
 .add-product {
@@ -32,18 +36,20 @@ h1 {
 
 .add-product input, .add-product button {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #444;
     border-radius: 5px;
+    background-color: #333;  /* Colore di sfondo degli input e pulsanti */
+    color: white;  /* Testo bianco per input e pulsanti */
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #4CAF50;  /* Colore verde per i pulsanti */
     color: white;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #45a049;  /* Colore verde più scuro al passaggio del mouse */
 }
 
 ul {
@@ -53,29 +59,42 @@ ul {
 
 li {
     padding: 10px;
-    background-color: #f9f9f9;
+    background-color: #333;  /* Sfondo scuro per ogni prodotto */
     margin-bottom: 5px;
     border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #444;  /* Colore del bordo dei prodotti */
 }
 
+/* Pulsante Modifica */
 button.modify {
-    background-color: #ff9800;
+    background-color: #ff9800;  /* Colore giallo per Modifica */
 }
 
 button.modify:hover {
-    background-color: #fb8c00;
+    background-color: #fb8c00;  /* Giallo scuro al passaggio del mouse */
 }
 
+/* Pulsante Rimuovi */
 button.remove {
-    background-color: #f44336;
+    background-color: #f44336;  /* Colore rosso per Rimuovi */
 }
 
 button.remove:hover {
-    background-color: #d32f2f;
+    background-color: #d32f2f;  /* Rosso scuro al passaggio del mouse */
 }
 
 button {
     margin-left: 10px;
     padding: 5px 10px;
     font-size: 12px;
+}
+
+input, button {
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #444;
 }
