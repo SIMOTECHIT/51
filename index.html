@@ -2,54 +2,62 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Ricevuta Ricarica NON Fiscale</title>
+  <title>Ricevuta Ricarica</title>
   <style>
     body {
-      font-family: 'Courier New', monospace;
-      width: 280px;
+      font-family: Arial, sans-serif;
+      width: 300px;
       margin: auto;
-      padding: 10px;
-      border: 1px dashed #000;
+      padding: 20px;
+      border: 2px solid #000;
       background-color: #fff;
     }
     .logo {
       text-align: center;
-      margin-bottom: 10px;
     }
     .logo img {
-      width: 80%;
-      height: auto;
+      width: 180px;
+      margin-bottom: 10px;
     }
-    .center {
+    .title {
       text-align: center;
-    }
-    .big {
       font-size: 20px;
       font-weight: bold;
+      margin-bottom: 5px;
     }
-    .bold {
-      font-weight: bold;
+    .subtitle {
+      text-align: center;
+      font-size: 14px;
+      margin-bottom: 10px;
     }
-    .btn {
-      display: block;
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      background-color: #000;
-      color: #fff;
-      border: none;
-      cursor: pointer;
+    .info {
+      font-size: 14px;
+      margin-bottom: 5px;
     }
-    .form-field {
-      margin: 5px 0;
-    }
-    hr {
-      border: none;
-      border-top: 1px dashed #000;
+    .center-text {
+      text-align: center;
+      font-size: 12px;
       margin: 10px 0;
     }
+    .footer {
+      text-align: center;
+      font-size: 13px;
+      margin-top: 15px;
+    }
+    .form-area {
+      margin-top: 20px;
+    }
+    .btn {
+      width: 100%;
+      padding: 10px;
+      background-color: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
     @media print {
-      .no-print {
+      .form-area {
         display: none;
       }
       body {
@@ -60,45 +68,27 @@
 </head>
 <body>
   <div class="logo">
-    <img src="file-9A3mce5yUCThHnw5hb51D2" alt="Logo ReVoltaro GSM">
+    <img src="file-9A3mce5yUCThHnw5hb51D2" alt="ReVoltaro GSM Logo">
   </div>
-  <div class="center big">RICEVUTA CLIENTE</div>
-  <div class="center">Transazione avvenuta con successo</div>
-  <hr>
-  <div><span class="bold">Data:</span> <span id="data"></span></div>
-  <div><span class="bold">Ora:</span> <span id="ora"></span></div>
-  <div><span class="bold">Operatore:</span> <span id="operatoreOut"></span></div>
-  <div><span class="bold">Importo Ricarica:</span> <span id="importoOut"></span></div>
-  <hr>
-  <div class="center">
-    Questa ricevuta conferma l'esecuzione della ricarica telefonica presso il punto vendita ReVoltaro GSM.
+  <div class="title">Ricevuta Operazione</div>
+  <div class="subtitle">Servizio di Ricarica Telefonica</div>
+  <div class="info"><strong>Data:</strong> <span id="data"></span></div>
+  <div class="info"><strong>Ora:</strong> <span id="ora"></span></div>
+  <div class="info"><strong>Operatore:</strong> <span id="operatoreOut"></span></div>
+  <div class="info"><strong>Importo Ricarica:</strong> <span id="importoOut"></span></div>
+  <div class="center-text">
+    La presente ricevuta attesta l'effettuazione della ricarica. Non costituisce documento fiscale ai sensi dell'art. 2, comma 3, lett. a, DPR 633/72.
   </div>
-  <div class="center" style="font-size: 12px; margin-top: 5px;">
-    Documento valido come promemoria. Non costituisce documento fiscale ai sensi dell'art. 2, comma 3, lett. a, DPR 633/72.
-  </div>
-  <hr>
-  <div class="center">
+  <div class="footer">
     ReVoltaro GSM<br>
-    Via Valeriana 945/A - Cercino (SO)<br>
+    Via Valeriana 945/A, 23016 Cercino (SO)<br>
     P.IVA: IT12345678901
   </div>
-  <div class="center" style="margin-top: 5px;">
-    Grazie per aver scelto i nostri servizi!
-  </div>
-
-  <div class="no-print">
-    <hr>
-    <div class="form-field">
-      <label>Operatore:</label><br>
-      <input type="text" id="operatore" placeholder="es. DIGI">
-    </div>
-    <div class="form-field">
-      <label>Importo:</label><br>
-      <input type="number" id="importo" placeholder="es. 10">
-    </div>
+  <div class="form-area">
+    <label>Operatore:<br><input type="text" id="operatore" placeholder="es. DIGI"></label><br><br>
+    <label>Importo:<br><input type="number" id="importo" placeholder="es. 10"></label><br><br>
     <button class="btn" onclick="stampa()">Stampa Ricevuta</button>
   </div>
-
   <script>
     function stampa() {
       const operatore = document.getElementById("operatore").value;
