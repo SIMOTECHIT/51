@@ -16,13 +16,18 @@
       margin-bottom: 10px;
     }
     .logo img {
-      height: 50px;
+      max-width: 100%;
+      height: auto;
     }
     .center {
       text-align: center;
     }
     .big {
-      font-size: 18px;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .bold {
       font-weight: bold;
     }
     .btn {
@@ -38,6 +43,11 @@
     .form-field {
       margin: 5px 0;
     }
+    hr {
+      border: none;
+      border-top: 1px dashed #000;
+      margin: 10px 0;
+    }
     @media print {
       .no-print {
         display: none;
@@ -50,32 +60,31 @@
 </head>
 <body>
   <div class="logo">
-    <img src="https://i.imgur.com/TlL0LMc.png" alt="Logo ReVoltaro GSM">
+    <img src="file-9A3mce5yUCThHnw5hb51D2" alt="ReVoltaro GSM Logo">
   </div>
   <div class="center big">RICEVUTA CLIENTE</div>
-  <div class="center">Operazione completata con successo</div>
+  <div class="center">Transazione completata con successo</div>
   <hr>
-  <div><strong>Data:</strong> <span id="data"></span></div>
-  <div><strong>Operatore:</strong> <span id="operatoreOut"></span></div>
-  <div><strong>Importo:</strong> <span id="importoOut"></span></div>
+  <div><span class="bold">Data:</span> <span id="data"></span></div>
+  <div><span class="bold">Ora:</span> <span id="ora"></span></div>
+  <div><span class="bold">Operatore:</span> <span id="operatoreOut"></span></div>
+  <div><span class="bold">Importo ricarica:</span> <span id="importoOut"></span></div>
   <hr>
   <div class="center">
-    La presente ricevuta attesta l’avvenuta erogazione
-    del servizio di ricarica telefonica prepagata.
+    La presente ricevuta attesta l'erogazione di credito telefonico prepagato
+    richiesto presso il nostro punto vendita.
   </div>
   <br>
   <div class="center">
-    Si precisa che la presente ricevuta ha valore di promemoria
-    per l’operazione effettuata e non costituisce documento fiscale.
-  </div>
-  <br>
-  <div class="center">
-    Per qualsiasi informazione o assistenza contatta:
-    <br><strong>ReVoltaro GSM</strong>
+    Documento valido esclusivamente come promemoria
+    dell'operazione effettuata. Non costituisce documento fiscale.
   </div>
   <hr>
-  <div class="center">Grazie per aver scelto i nostri servizi!</div>
-  
+  <div class="center bold">Grazie per aver scelto ReVoltaro GSM</div>
+  <div class="center">Via Valeriana 945/A, Cercino (SO)</div>
+  <div class="center">P.IVA: IT12345678901</div>
+  <hr>
+
   <div class="no-print">
     <div class="form-field">
       <label>Operatore:</label><br>
@@ -92,11 +101,14 @@
     function stampa() {
       const operatore = document.getElementById("operatore").value;
       const importo = document.getElementById("importo").value;
-      const oggi = new Date().toLocaleDateString();
+      const oggi = new Date();
+      const data = oggi.toLocaleDateString();
+      const ora = oggi.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
       document.getElementById("operatoreOut").textContent = operatore;
       document.getElementById("importoOut").textContent = "€" + parseFloat(importo).toFixed(2);
-      document.getElementById("data").textContent = oggi;
+      document.getElementById("data").textContent = data;
+      document.getElementById("ora").textContent = ora;
 
       window.print();
     }
