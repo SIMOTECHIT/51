@@ -5,18 +5,19 @@
   <title>Ricevuta Ricarica NON Fiscale</title>
   <style>
     body {
-      font-family: 'Courier New', Courier, monospace;
+      font-family: 'Courier New', monospace;
       width: 280px;
       margin: auto;
       padding: 10px;
       border: 1px dashed #000;
+      background-color: #fff;
     }
     .logo {
       text-align: center;
       margin-bottom: 10px;
     }
     .logo img {
-      max-width: 100%;
+      width: 80%;
       height: auto;
     }
     .center {
@@ -25,7 +26,6 @@
     .big {
       font-size: 20px;
       font-weight: bold;
-      margin-bottom: 5px;
     }
     .bold {
       font-weight: bold;
@@ -35,8 +35,8 @@
       width: 100%;
       padding: 10px;
       margin-top: 10px;
-      background-color: black;
-      color: white;
+      background-color: #000;
+      color: #fff;
       border: none;
       cursor: pointer;
     }
@@ -60,32 +60,34 @@
 </head>
 <body>
   <div class="logo">
-    <img src="file-9A3mce5yUCThHnw5hb51D2" alt="ReVoltaro GSM Logo">
+    <img src="file-9A3mce5yUCThHnw5hb51D2" alt="Logo ReVoltaro GSM">
   </div>
   <div class="center big">RICEVUTA CLIENTE</div>
-  <div class="center">Transazione completata con successo</div>
+  <div class="center">Transazione avvenuta con successo</div>
   <hr>
   <div><span class="bold">Data:</span> <span id="data"></span></div>
   <div><span class="bold">Ora:</span> <span id="ora"></span></div>
   <div><span class="bold">Operatore:</span> <span id="operatoreOut"></span></div>
-  <div><span class="bold">Importo ricarica:</span> <span id="importoOut"></span></div>
+  <div><span class="bold">Importo Ricarica:</span> <span id="importoOut"></span></div>
   <hr>
   <div class="center">
-    La presente ricevuta attesta l'erogazione di credito telefonico prepagato
-    richiesto presso il nostro punto vendita.
+    Questa ricevuta conferma l'esecuzione della ricarica telefonica presso il punto vendita ReVoltaro GSM.
   </div>
-  <br>
+  <div class="center" style="font-size: 12px; margin-top: 5px;">
+    Documento valido come promemoria. Non costituisce documento fiscale ai sensi dell'art. 2, comma 3, lett. a, DPR 633/72.
+  </div>
+  <hr>
   <div class="center">
-    Documento valido esclusivamente come promemoria
-    dell'operazione effettuata. Non costituisce documento fiscale.
+    ReVoltaro GSM<br>
+    Via Valeriana 945/A - Cercino (SO)<br>
+    P.IVA: IT12345678901
   </div>
-  <hr>
-  <div class="center bold">Grazie per aver scelto ReVoltaro GSM</div>
-  <div class="center">Via Valeriana 945/A, Cercino (SO)</div>
-  <div class="center">P.IVA: IT12345678901</div>
-  <hr>
+  <div class="center" style="margin-top: 5px;">
+    Grazie per aver scelto i nostri servizi!
+  </div>
 
   <div class="no-print">
+    <hr>
     <div class="form-field">
       <label>Operatore:</label><br>
       <input type="text" id="operatore" placeholder="es. DIGI">
