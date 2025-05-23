@@ -1,28 +1,93 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestionale Magazzino</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Ricevuta Ricarica NON Fiscale</title>
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      width: 280px;
+      margin: auto;
+      padding: 10px;
+      border: 1px dashed #000;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .logo img {
+      height: 40px;
+    }
+    .center {
+      text-align: center;
+    }
+    .big {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .form-field {
+      margin: 5px 0;
+    }
+    @media print {
+      .no-print {
+        display: none;
+      }
+      body {
+        border: none;
+      }
+    }
+  </style>
 </head>
 <body>
-
-    <div class="container">
-        <h1>Gestionale Magazzino</h1>
-        
-        <!-- Aggiungi Prodsssotto -->
-        <div class="add-product">
-            <input type="text" id="productName" placeholder="Nome prodotto" />
-            <input type="number" id="productQuantity" placeholder="Quantsimoità" />
-            <button onclick="addProduct()">Aggiungi Prodotto</button>
-        </div>
-
-        <!-- Lista Prodotti -->
-        <h2>Prodotti nel Magazzino</h2>
-        <ul id="productList"></ul>
+  <div class="logo">
+    <img src="https://via.placeholder.com/150x40?text=ReVoltaro+GSM" alt="ReVoltaro GSM Logo">
+  </div>
+  <div class="center big">RICEVUTA</div>
+  <div class="center">Operazione Completata</div>
+  <hr>
+  <div><strong>Data:</strong> <span id="data"></span></div>
+  <div><strong>Operatore:</strong> <span id="operatoreOut"></span></div>
+  <div><strong>Importo:</strong> <span id="importoOut"></span></div>
+  <hr>
+  <div class="center">Grazie per aver scelto</div>
+  <div class="center">ReVoltaro GSM</div>
+  <hr>
+  <div class="center">RICEVUTA CLIENTE</div>
+  
+  <div class="no-print">
+    <div class="form-field">
+      <label>Operatore:</label><br>
+      <input type="text" id="operatore" placeholder="es. DIGI">
     </div>
+    <div class="form-field">
+      <label>Importo:</label><br>
+      <input type="number" id="importo" placeholder="es. 10">
+    </div>
+    <button class="btn" onclick="stampa()">Stampa Ricevuta</button>
+  </div>
 
-    <script src="script.js"></script>
+  <script>
+    function stampa() {
+      const operatore = document.getElementById("operatore").value;
+      const importo = document.getElementById("importo").value;
+      const oggi = new Date().toLocaleDateString();
+
+      document.getElementById("operatoreOut").textContent = operatore;
+      document.getElementById("importoOut").textContent = "€" + parseFloat(importo).toFixed(2);
+      document.getElementById("data").textContent = oggi;
+
+      window.print();
+    }
+  </script>
 </body>
 </html>
